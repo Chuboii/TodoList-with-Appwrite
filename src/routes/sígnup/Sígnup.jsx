@@ -33,11 +33,11 @@ const changeValue = (e) => {
     e.preventDefault()
 
     if (value.password === value.confirmPassword) {
-
+      let timeout;
    if(value.password.length >= 6){
      try {
       setIsLoaded(true)
-      let timeout = setTimeout(() => {
+      timeout = setTimeout(() => {
         setIsLoaded(false)
         setErrMessage("Connection timeout")
         setIsValidationToggled(true)
@@ -56,10 +56,10 @@ const changeValue = (e) => {
   }
     
     catch (err) {
-      clearTimeout(timeout)
-      if(err.code == "auth/weak-password"){
-        
-      }
+       clearTimeout(timeout)
+       setIsLoaded(false)
+        setErrMessage("Email already in use")
+        setIsValidationToggled(true)
       console.log(err)
       
     }
