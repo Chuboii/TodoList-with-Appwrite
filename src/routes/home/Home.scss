@@ -31,7 +31,7 @@
       position: absolute;
       left:50%;
       transform: translateX(-50%);
-      padding:.8rem;
+      padding:1.4rem .8rem;
       border:none;
       border-radius: 10px;
       background-color: black;
@@ -51,7 +51,7 @@
       display:flex;
       margin-left:.5rem;
       margin-bottom:1rem;
-      margin-top: 4rem;
+      margin-top: 6rem;
       color: white;
       box-shadow: 0 0 10px 0 rgba(0,0,0,.7);
       .num{
@@ -91,6 +91,26 @@
         
       }
     }
+    }
+    .add-form{
+      position:relative;
+      width:90%;
+      max-width:500px;
+      position: absolute;
+      left:50%;
+      transform: translateX(-50%);
+      padding:1.3rem .8rem;
+
+      .add-form-btn{
+      position: absolute;
+        right: 2rem;
+        display: flex;
+        background-color: transparent;
+        justify-content: center;
+top: 1.7rem;
+        align-items: center;
+       width: 49px;
+      }
     }
   }
 }

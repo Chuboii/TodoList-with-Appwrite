@@ -114,3 +114,12 @@ border-bottom-left-radius: 10px;
     }
     }
 }
+
+
+
+body {
+  margin: 0;
+  background: #536976;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #292E49, #536976);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #292E49, #536976); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
