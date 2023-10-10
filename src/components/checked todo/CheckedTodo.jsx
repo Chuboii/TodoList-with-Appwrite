@@ -65,7 +65,7 @@ const updateObject = {
       e.stopPropagation()
     }}>
            {isLoaded && <Loader pos="absolute" bg="rgba(0,0,0,.5)"/>}
-    <CloseIcon onClick={close} sx={{position:"fixed",top:"10px",zIndex:'20',  background:"rgba(0,0,0,.7)", padding:".5rem", borderRadius:"10px"}}/>
+        <CloseIcon onClick={close} sx={{ position: "fixed", color:"white", top: "10px", zIndex: '20', left:'10px',  background:"rgba(0,0,0,.7)", padding:".5rem", borderRadius:"10px"}}/>
     
     <h3 style={{zIndex:'20'}}> List of Todos Done </h3>
     
@@ -74,7 +74,7 @@ const updateObject = {
    <div className="checked-item">
         <p className="checked-name">{JSON.parse(el).data}</p>
     <div className="btn">
-    <button  onClick={()=>{deleteTodos(JSON.parse(el).id, el.$collectionId)}} style={{marginRight:"1rem", position:'absolute', right:"1rem"}}><DeleteForeverSharpIcon/></button>
+    <button  onClick={()=>{deleteTodos(JSON.parse(el).id, el.$collectionId)}} style={{marginRight:"1rem", position:'absolute', right:"1rem"}}><DeleteForeverSharpIcon sx={{color:"black"}}/></button>
     
     </div>
     </div>

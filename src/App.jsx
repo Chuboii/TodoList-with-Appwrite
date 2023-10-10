@@ -2,7 +2,7 @@ import {Routes, Route} from "react-router-dom"
 import Signup from "/src/routes/sígnup/Sígnup.jsx"
 import Signin from "/src/routes/signin/Signin.jsx"
 import Home from "/src/routes/home/Home.jsx"
-
+import './App.css'
 function App() {
   
   return (

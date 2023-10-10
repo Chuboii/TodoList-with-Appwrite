@@ -58,12 +58,14 @@ const changeValue = (e) => {
    }
    else{
      setErrMessage("Passwords should be at least 6 characters")
-   setIsValidationToggled(true)
+     setIsValidationToggled(true)
+     setIsLoaded(false)
    }
  }
  else {
    setErrMessage("Passwords does not match")
    setIsValidationToggled(true)
+   setIsLoaded(false)
  }
   }
   
@@ -72,7 +74,7 @@ const googleBtn = async () => {
 setIsLoaded(true)
     setTimeout(()=>{
       setIsLoaded(false)
-    }, 10000)
+    }, 5000)
 
  
   try{
@@ -96,7 +98,7 @@ catch(e){
             <input className="inp3" value={value.password} name="password" onChange={changeValue} type="password" placeholder="******" required/>
                 <input className="inp4" name="confirmPassword" value={value.confirmPassword} onChange={changeValue} type="password" placeholder="******" required/>
               <button className="sign-btn">Sign up</button>
-              <GoogleIcon onClick={googleBtn} sx={{position:"relative", left:"50%", transform:"translateX(-50%)", background:"orangered", padding:"1rem", borderRadius:"50%"}}/>
+              <GoogleIcon onClick={googleBtn} sx={{position:"relative",color:'white', left:"50%", transform:"translateX(-50%)", background:"orangered", padding:"1rem", borderRadius:"50%"}}/>
               <p className="already"> Already got an account? <Link to={"/signin"}> Sign in </Link> </p>
         
     </form>

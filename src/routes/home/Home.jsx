@@ -8,7 +8,8 @@ import CheckCircleOutlineSharpIcon from '@mui/icons-material/CheckCircleOutlineS
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import {v4 as uuidv4} from "uuid"
 import {UserTodoContext} from "/src/context/UserTodo"
-import {databases} from "/src/appwrite/appwrite"
+import { databases } from "/src/appwrite/appwrite"
+import {AlertContext} from "/src/context/AlertContext"
 import CircularProgress from '@mui/material/CircularProgress';
 import CheckedTodo from "/src/components/checked todo/CheckedTodo"
 export default function Home(){
@@ -20,10 +21,13 @@ const [data, setData] = useState("")
 const [length, setLength] = useState(0)
 const [enableHistory, setEnableHistory] = useState(false)
 const [clicked, setClicked] = useState(false)
-const [isLoaded, setIsLoaded] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(true)
+ const {setErrMessage, isValidationToggled, setIsValidationToggled} = useContext(AlertContext)
  async function logout(){
   await signout()
-  setUserInfo(null)
+   setUserInfo(null)
+   setIsLoaded(false)
+      setIsValidationToggled(false)
  localStorage.setItem('userInfo', JSON.stringify(null))
 }
 
@@ -215,7 +219,7 @@ const historyFunc = (e) =>{
     <header> 
     <h4 className="name">Welcome {userInfo.displayName} 😇</h4>
 
-    <button onClick={logout}> Logout</button>
+    <button onClick={logout} style={{color:'black'}}> Logout</button>
     </header>
     
     <main>
@@ -242,10 +246,10 @@ const historyFunc = (e) =>{
               <p className="item-name">{parsedEl.data}</p>
               <div className="btn">
                 <button style={{ marginRight: "1rem" }} onClick={() => deleteTodos(parsedEl.id)}>
-                  <DeleteForeverSharpIcon />
+                  <DeleteForeverSharpIcon sx={{color:"black"}} />
                 </button>
                 <button onClick={() => checkedTodos(el, parsedEl.id)}>
-                  <CheckCircleOutlineSharpIcon />
+                  <CheckCircleOutlineSharpIcon sx={{color:"black"}} />
                 </button>
               </div>
             </div>

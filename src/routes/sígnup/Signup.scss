@@ -8,8 +8,8 @@
   max-width:500px;
   width:80%;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, .4);
-    background-color: rgba(255, 255, 255, .15);  
-    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, .25);  
+    backdrop-filter: blur(15px);
     padding:1rem;
     border-radius:10px;
   
@@ -22,6 +22,10 @@
      outline:none;
  
    }
+
+   .inp1::placeholder,    .inp2::placeholder,    .inp3::placeholder,   .inp4::placeholder{
+    color: black;
+   }
    .sign-btn{
      margin:.5rem 0;
      padding:1rem 0;
@@ -29,6 +33,7 @@
    }
    .already{
      text-align: center;
+     color: white;
      a{
        color: black;
      }

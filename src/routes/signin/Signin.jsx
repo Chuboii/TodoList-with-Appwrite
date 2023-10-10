@@ -30,17 +30,25 @@ const changeValue = (e) => {
   const handleSubmit = async (e)=>{
     e.preventDefault()
     setIsLoaded(true)
+   let timeout = setTimeout(() => {
+      setIsLoaded(false)
+      setErrMessage("Connection timeout")
+      setIsValidationToggled(true)
+    }, 4000)
     try{
     const {user} = await signin(value.email, value.password)
     //console.log(value.email)
     setUserInfo(user)
     localStorage.setItem("userInfo", JSON.stringify(user))
-    setIsLoaded(false)
+      setIsLoaded(false)
+      setIsValidationToggled(true)
     }
     catch(e){
       if(e.code === "auth/invalid-login-credentials"){
         setErrMessage("Invalid login details")
-   setIsValidationToggled(true)
+        setIsValidationToggled(true)
+        setIsLoaded(false)
+        clearTimeout(timeout)
       }
     }
   }
@@ -49,7 +57,7 @@ const changeValue = (e) => {
     setIsLoaded(true)
     setTimeout(()=>{
       setIsLoaded(false)
-    }, 10000)
+    }, 5000)
     try{
   const {user} = await signInWithGoogle()
 setUserInfo(user)
@@ -67,7 +75,7 @@ catch(e){
         <input className="inpp1" type="email" name="email" value={value.email} onChange={changeValue} placeholder="joedoe@gmail.com" required/>
             <input className="inpp2" value={value.password} name="password" onChange={changeValue} type="password" placeholder="******" required/>
               <button className="signin-btn">Sign in</button>
-                            <GoogleIcon onClick={googleBtn} sx={{position:"relative", left:"50%", transform:"translateX(-50%)", background:"orangered", padding:"1rem", borderRadius:"50%"}}/>
+                            <GoogleIcon onClick={googleBtn} sx={{position:"relative",color:"white",left:"50%", transform:"translateX(-50%)", background:"orangered", padding:"1rem", borderRadius:"50%"}}/>
               <p className="already2"> Already got an account? <Link to={"/signup"}> Sign up </Link> </p>
               
     </form>

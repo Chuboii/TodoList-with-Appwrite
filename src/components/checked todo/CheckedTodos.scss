@@ -13,8 +13,10 @@
  padding:1rem;
  border-radius:10px;
  box-shadow: 0 0 10px 0 rgba(0,0,0,.7);
+ background-color: white;
  h3{
    text-align: center;
+   color: black;
  }
  .checked-contain{
    .checked-item{
@@ -25,6 +27,7 @@
       background:rgba(0,0,0,.9);
    margin-top:.5rem;
    padding:1rem;
+   color: gray;
    
    .checked-name{
      text-decoration: line-through;
