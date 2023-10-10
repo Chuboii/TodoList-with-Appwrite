@@ -74,7 +74,7 @@ const updateObject = {
    <div className="checked-item">
         <p className="checked-name">{JSON.parse(el).data}</p>
     <div className="btn">
-    <button  onClick={()=>{deleteTodos(JSON.parse(el).id, el.$collectionId)}} style={{marginRight:"1rem", position:'absolute', right:"1rem"}}><DeleteForeverSharpIcon sx={{color:"black"}}/></button>
+    <button style={{background:"white"}}  onClick={()=>{deleteTodos(JSON.parse(el).id, el.$collectionId)}} style={{marginRight:"1rem", position:'absolute', right:"1rem"}}><DeleteForeverSharpIcon sx={{color:"black"}}/></button>
     
     </div>
     </div>

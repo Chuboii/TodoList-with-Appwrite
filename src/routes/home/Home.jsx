@@ -219,7 +219,7 @@ const historyFunc = (e) =>{
     <header> 
     <h4 className="name">Welcome {userInfo.displayName} 😇</h4>
 
-    <button onClick={logout} style={{color:'black'}}> Logout</button>
+    <button onClick={logout} style={{color:'black', background:"white"}}> Logout</button>
     </header>
     
     <main>
@@ -245,10 +245,10 @@ const historyFunc = (e) =>{
             <div key={index} className="item">
               <p className="item-name">{parsedEl.data}</p>
               <div className="btn">
-                <button style={{ marginRight: "1rem" }} onClick={() => deleteTodos(parsedEl.id)}>
+                <button  style={{ marginRight: "1rem", background:"white" }} onClick={() => deleteTodos(parsedEl.id)}>
                   <DeleteForeverSharpIcon sx={{color:"black"}} />
                 </button>
-                <button onClick={() => checkedTodos(el, parsedEl.id)}>
+                <button style={{background:"white"}} onClick={() => checkedTodos(el, parsedEl.id)}>
                   <CheckCircleOutlineSharpIcon sx={{color:"black"}} />
                 </button>
               </div>
