@@ -1,0 +1,32 @@
+.err-container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  z-index:2;
+  padding:.4rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .4);
+    background-color: rgba(255, 255, 255, .15);  
+    transition:all .5s;
+    
+   
+    backdrop-filter: blur(65px);
+    width:80%;
+   max-width:400px;
+   text-align:center;
+   border-radius:10px;
+   height:100px; 
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   
+   .err-times{
+     position:absolute;
+     right:10px;
+     top:10px;
+     background:orangered;
+     padding:.5rem;
+     border-radius:10px;
+     
+   }
+}

@@ -1,0 +1,90 @@
+.container{
+  
+  header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    background:black;
+    padding:.5rem;
+    z-index: 1;
+    height:80px;
+    .name{
+      
+    }
+
+  }
+  
+  main{
+    position:absolute;
+    top:7rem;
+    left:0;
+    right:0;
+    
+    
+    .add{
+      width:90%;
+      max-width:400px;
+      position: relative;
+      left:50%;
+      transform: translateX(-50%);
+      padding:.8rem;
+      border:none;
+      border-bottom:2px solid;
+    }
+    
+    .history{
+      background:rgba(0,0,0,.6);
+   
+      width:190px;
+      justify-content: center;
+      margin:.7rem 0;
+      padding:1rem 1.5rem;
+      box-sizing: border-box;
+      border-radius: 10px;
+      display:flex;
+      margin-left:.5rem;
+      margin-bottom:1rem;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.7);
+      .num{
+        background:red;
+        width:25px;
+        display:block;
+       
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:25px;
+        font-size:15px;
+        border-radius:50%;
+        margin-left:1rem;
+      }
+    }
+    
+    .todo-container{
+      .item{
+      display:flex;
+      align-items: center;
+      background:rgba(0,0,0,.6);
+   
+      width:90%;
+      margin:.7rem 0;
+      position: relative;
+      left:50%;
+      transform: translateX(-50%);
+      padding:1rem 1.5rem;
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.7);
+      .btn{
+        position: absolute;
+        right:.3rem;
+        
+      }
+    }
+    }
+  }
+}
