@@ -9,6 +9,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import Err from "/src/components/alert/Err"
 import {AlertContext} from "/src/context/AlertContext"
 import Loader from "/src/components/loader/Loader"
+import img from '/src/assets/fb7.jpg';
 export default function Signup(){
   const [value, setValue] = useState({
   name: "",
@@ -30,15 +31,21 @@ const changeValue = (e) => {
 
   const handleSubmit = async (e)=>{
     e.preventDefault()
-    setIsLoaded(true)
-    //console.log(value.name)
- // let displayName = value.name
- if(value.password === value.confirmPassword){
+
+    if (value.password === value.confirmPassword) {
+
    if(value.password.length >= 6){
-    try{
+     try {
+      setIsLoaded(true)
+      let timeout = setTimeout(() => {
+        setIsLoaded(false)
+        setErrMessage("Connection timeout")
+        setIsValidationToggled(true)
+      }, 4000)
+
    const {user} = await emailSignup(value.email, value.password)
- //  console.log(res)
-   
+
+       
     await updateProfile(user, {
       displayName: value.name
     })
@@ -48,7 +55,8 @@ const changeValue = (e) => {
     setIsLoaded(false)
   }
     
-    catch(err){
+    catch (err) {
+      clearTimeout(timeout)
       if(err.code == "auth/weak-password"){
         
       }
@@ -70,7 +78,7 @@ const changeValue = (e) => {
   }
   
 const googleBtn = async () => {
-// setIsLoaded(true)
+
 setIsLoaded(true)
     setTimeout(()=>{
       setIsLoaded(false)
@@ -85,14 +93,16 @@ localStorage.setItem("userInfo", JSON.stringify(user))
 
 }
 catch(e){
-  //setIsLoaded(false)
+  console.log(e);
 }
 }
   return(
     <>
     {isValidationToggled && <Err/>}
    {isLoaded && <Loader/>}
-    <form className="signup" onSubmit={handleSubmit}>
+      <form className="signup" onSubmit={handleSubmit}>
+        <div className="first"><img src={img} /></div>
+        <div className="second">
     <input type="text" name="name" placeholder="Joe Doe" value={value.name} className="inp1" onChange={changeValue} required/>
         <input className="inp2" type="email" name="email" value={value.email} onChange={changeValue} placeholder="joedoe@gmail.com" required/>
             <input className="inp3" value={value.password} name="password" onChange={changeValue} type="password" placeholder="******" required/>
@@ -100,7 +110,7 @@ catch(e){
               <button className="sign-btn">Sign up</button>
               <GoogleIcon onClick={googleBtn} sx={{position:"relative",color:'white', left:"50%", transform:"translateX(-50%)", background:"orangered", padding:"1rem", borderRadius:"50%"}}/>
               <p className="already"> Already got an account? <Link to={"/signin"}> Sign in </Link> </p>
-        
+        </div>
     </form>
     </>
     )
