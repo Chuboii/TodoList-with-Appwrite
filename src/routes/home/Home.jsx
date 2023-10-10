@@ -12,6 +12,8 @@ import { databases } from "/src/appwrite/appwrite"
 import {AlertContext} from "/src/context/AlertContext"
 import CircularProgress from '@mui/material/CircularProgress';
 import CheckedTodo from "/src/components/checked todo/CheckedTodo"
+import EditIcon from '@mui/icons-material/Edit';
+
 export default function Home(){
  const {userInfo, setUserInfo} = useContext(UserContext)
  const navigate = useNavigate()
@@ -223,11 +225,11 @@ const historyFunc = (e) =>{
     </header>
     
     <main>
-   <form onSubmit={handleSubmit}>
-    <input className="add"placeholder="Add todo here..."  value={todo} onChange={changeValue}/>
-    </form>
-    
-   
+   <form className="add-form" onSubmit={handleSubmit}>
+               <input className="add" placeholder="Add todo here..." value={todo} onChange={changeValue} />
+               <button className="add-form-btn"> <EditIcon sx={{color:'white'}} /> </button>
+             </form>
+             
       <div onClick={historyFunc} className="history">
     View History <span className="num">{length}</span>
     </div>
